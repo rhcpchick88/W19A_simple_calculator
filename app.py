@@ -5,10 +5,10 @@ from math_functions.division import div
 from math_functions.multiplication import multi
 from math_functions.subtraction import sub
 
+# Custom exception
 
 class CalculatorInputError(Exception):
     pass
-
 
 # printing separately so it appears nicely in terminal"
 
@@ -32,17 +32,16 @@ num2=int(input("Enter second number:"))
 try:
     if choice == "1":
         result=add(num1, num2)
-        print(result)
     elif choice=="2":
         result =sub(num1, num2)
-        print(result)
     elif choice=="3":
         result=div(num1, num2)
-        print(result)
     elif choice=="4":
         result=multi(num1, num2)
-        print(result)
     else:
-        raise CalculatorInputError
+        # call my custom exception error in if-else block
+        raise CalculatorInputError 
+# say what happens in the exception 
+    print(result)
 except CalculatorInputError:
     print("Invalid input")
