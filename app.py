@@ -41,7 +41,7 @@ try:
     else:
         # call my custom exception error in if-else block
         raise CalculatorInputError 
-# say what happens in the exception 
     print(result)
+# say what happens in the exception 
 except CalculatorInputError:
     print("Invalid input")
