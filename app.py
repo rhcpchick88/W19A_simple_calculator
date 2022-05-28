@@ -5,6 +5,11 @@ from math_functions.division import div
 from math_functions.multiplication import multi
 from math_functions.subtraction import sub
 
+
+class CalculatorInputError(Exception):
+    pass
+
+
 # printing separately so it appears nicely in terminal"
 
 print("This is the best calculator, please choose from these options to begin!")
@@ -22,18 +27,22 @@ choice = input("Input the number corresponding with your selection:")
 num1=int(input("Enter first number:"))
 num2=int(input("Enter second number:"))
 
+
 # if else, to go through each selection and do the correct function associated with it
-
-if choice == "1":
-    result=add(num1, num2)
-    print(result)
-elif choice=="2":
-    result =sub(num1, num2)
-    print(result)
-elif choice=="3":
-    result=div(num1, num2)
-    print(result)
-elif choice=="4":
-    result=multi(num1, num2)
-    print(result)
-
+try:
+    if choice == "1":
+        result=add(num1, num2)
+        print(result)
+    elif choice=="2":
+        result =sub(num1, num2)
+        print(result)
+    elif choice=="3":
+        result=div(num1, num2)
+        print(result)
+    elif choice=="4":
+        result=multi(num1, num2)
+        print(result)
+    else:
+        raise CalculatorInputError
+except CalculatorInputError:
+    print("Invalid input")
